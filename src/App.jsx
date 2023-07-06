@@ -1,36 +1,43 @@
-import { HiMiniMagnifyingGlass } from 'react-icons/hi2'
+
 import UseHook from './hook/useHook';
 
 import './App.css'
+import TextH2 from './components/typography/TextH2';
+import TextH4 from './components/typography/Texth4';
+import TextH5 from './components/typography/TextH5';
+import TextP from './components/typography/TextP';
+import Input from './components/input/input';
+import Button from './components/button/Button';
+import Container from './components/container/Container';
 
 function App() {
-  const { user, repos, showProjects, loading, notFound, handleUser, fetchRepos } = UseHook()
+  const { repos, showProjects, loading, notFound } = UseHook()
 
   return (
-    <main>
-      <h2>Consumindo Api com Axios</h2>
-      <input type="text" value={user} onChange={handleUser} placeholder='Digite o nome do Usuário...' />
-      <button onClick={fetchRepos}><HiMiniMagnifyingGlass size={15} /> Buscar projetos</button>
-      <h4>Todos os projetos no github:</h4>
+    <Container>
+      <TextH2>Consumindo Api com Axios</TextH2>
+      <Input />
+      <Button />
+      <TextH4>Todos os projetos no github:</TextH4>
 
       {loading ? (
-        <p>Loading...</p>
+        <TextP>Loading...</TextP>
       ) : notFound ? (
-        <p>Usuário não encontrado!</p>
+        <TextP>Usuário não encontrado!</TextP>
       )
         : showProjects > 0 ? (
           <div className='projetos'>
             {repos.map(repo => (
               <div className='apiDiv' key={repo.id}>
-                <h5> {repo.name}</h5>
-                <p>Criado em: {repo.created_at}</p>
+                <TextH5> {repo.name}</TextH5>
+                <TextP>Criado em: {repo.created_at}</TextP>
                 <a href={repo.html_url} target='_blank' rel="noreferrer">Ver Repositório</a>
               </div>
             ))}
           </div>
         ) : null}
 
-    </main>
+    </Container>
   )
 }
 

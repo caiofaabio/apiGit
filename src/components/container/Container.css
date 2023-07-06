@@ -1,0 +1,14 @@
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  max-height: 500px;
+  margin: 2rem auto;
+  border: 2px solid #fd65a0;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  background-color: #fd65a0;
+  box-shadow: 7px 8px 45px 0px rgba(253, 101, 160, 0.43);
+  -webkit-box-shadow: 7px 8px 45px 0px rgba(253, 101, 160, 0.43);
+  -moz-box-shadow: 7px 8px 45px 0px rgba(253, 101, 160, 0.43);
+}
